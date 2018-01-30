@@ -4,7 +4,7 @@ const candidates = [ 'ancoar', 'codingCarlos', 'ymd', 'jbaumann', 'josheriff' ];
 let liometro = 0;
 
 function initMess() {
-  const cells = document.getElementsByClassName( 'item' );
+  const cells = document.querySelectorAll( '.item' );
   const randomCellNum = Math.floor( Math.random() * 20 );
   const randomPersonNum = Math.floor( Math.floor( Math.random() * candidates.length ) );
 
@@ -12,26 +12,36 @@ function initMess() {
   console.log( 'randomCellNum: ', randomCellNum );
   console.log( 'randomPersonNum: ', randomPersonNum );
 
+  // Select one cell
   const selectedCell = cells[ randomCellNum ];
+  // Select one person
   const selectedPerson = candidates[ randomPersonNum ];
+  // Image path src
   const path = `./img/${selectedPerson}.png`;
 
-  console.debug( selectedCell );
+  // Add image
+  selectedCell.innerHTML = `<img src="${path}" alt="${selectedPerson}">`;
 
-  selectedCell.innerHTML = `<img src="${path}" width="100%" height="100%" onclick="upLiometro()">`;
+  // On click
+  selectedCell.addEventListener( 'click', function ( ev ) {
+    const id = this.id;
+    console.debug( '+1 liado..', id );
+  } );
 
+
+  // Repeat after xxx ms
   setTimeout( function () {
     clear( selectedCell );
-  }, 20000 );
+  }, 360000 );
 }
 
-function clear( celda ) {
-  celda.innerHTML = '';
+function clear( selectedCell ) {
+  selectedCell.innerHTML = '';
   if ( liometro < 5 ) {
     initMess();
   }
   else {
-    alert( 'EL liómetro ha explotado...' );
+    alert( 'LIOMETRO AL 100%' );
   }
 }
 
@@ -42,4 +52,4 @@ function upLiometro() {
   liometro++;
 }
 
-initMess();
+document.addEventListener( "DOMContentLoaded", initMess, false );
