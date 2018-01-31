@@ -1,7 +1,7 @@
 'use strict';
 
 const candidates = [ 'ancoar', 'codingCarlos', 'ymd', 'jbaumann', 'josheriff' ];
-let liometro = 0;
+let liometer = 0;
 
 function initMess() {
   const cells = document.querySelectorAll( '.item' );
@@ -25,6 +25,7 @@ function initMess() {
   // On click
   selectedCell.addEventListener( 'click', function ( ev ) {
     const id = this.id;
+    upLiometer()
     console.debug( '+1 liado..', id );
   } );
 
@@ -32,12 +33,13 @@ function initMess() {
   // Repeat after xxx ms
   setTimeout( function () {
     clear( selectedCell );
-  }, 360000 );
+  }, 1500 );
 }
 
 function clear( selectedCell ) {
   selectedCell.innerHTML = '';
-  if ( liometro < 5 ) {
+  console.log(liometer,'ºººººº liometer <<<<<<<')
+  if ( liometer < 5 ) {
     initMess();
   }
   else {
@@ -46,10 +48,10 @@ function clear( selectedCell ) {
 }
 
 // On click
-function upLiometro() {
-  console.log( 'Liometro:', liometro );
+function upLiometer() {
+  console.log( 'Liometro:', liometer );
   alert( '¡Has sido liado!' );
-  liometro++;
+  liometer++;
 }
 
 document.addEventListener( "DOMContentLoaded", initMess, false );
