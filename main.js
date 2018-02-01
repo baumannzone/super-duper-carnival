@@ -1,7 +1,6 @@
 'use strict';
 
-// const candidates = [ 'ancoar', 'codingCarlos', 'ymd', 'jbaumann', 'josheriff' ];
-const candidates = [ 'jbaumann', 'josheriff' ];
+const candidates = [ 'ancoar', 'codingCarlos', 'ymd', 'jbaumann', 'josheriff', 'ivooriginal' ];
 let liometer = 0;
 
 // Create style classes
