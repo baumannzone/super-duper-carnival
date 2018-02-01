@@ -11,6 +11,7 @@ candidates.forEach( function ( candidate ) {
   background: url("img/${candidate}.png");
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }`;
 } );
 styleText += '</style>';
@@ -53,9 +54,12 @@ function clear( selectedCell, selectedPerson ) {
 // On click
 function upLiometer() {
   liometer++;
+  // 3rd class
   const className = this.classList[ 2 ];
   this.classList.remove( className );
+  // This prevents double clicks
   this.removeEventListener( 'click', upLiometer );
+  // Update progress bar
   const liometerBar = document.getElementById( 'liometer-bar' );
   liometerBar.setAttribute( 'value', liometer );
 }
