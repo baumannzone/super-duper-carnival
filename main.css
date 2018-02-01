@@ -1,9 +1,3 @@
-.up-one {
-  display: none;
-  position: absolute;
-  text-align: center;
-}
-
 .hide {
   display: none;
 }
@@ -25,6 +19,8 @@
   background: linear-gradient(134deg, rgba(24, 77, 255, 1) 0%, rgba(176, 36, 255, 0.7) 100%);
   color: white;
   cursor: pointer;
+  width: 100px;
+  height: 100px;
 }
 
 .item img {
@@ -33,8 +29,20 @@
 }
 
 /* Liometro */
-.item-29 {
+#liometer {
   grid-row: 1 / -1;
   grid-column: -2 / -1;
   background: deeppink;
+}
+
+#liometer .parent {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transform: rotate(270deg);
+     -moz-transform: rotate(270deg);
+      -ms-transform: rotate(270deg);
+       -o-transform: rotate(270deg);
+          transform: rotate(270deg);
 }
