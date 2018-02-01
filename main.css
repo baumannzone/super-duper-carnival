@@ -19,8 +19,8 @@
   background: linear-gradient(134deg, rgba(24, 77, 255, 1) 0%, rgba(176, 36, 255, 0.7) 100%);
   color: white;
   cursor: pointer;
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
 }
 
 .item img {
@@ -32,17 +32,39 @@
 #liometer {
   grid-row: 1 / -1;
   grid-column: -2 / -1;
-  background: deeppink;
+  background: #003da5;
+  height: 500px;
+  position: relative;
 }
 
 #liometer .parent {
+  position: relative;
+  left: 80px;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 460px;
   -webkit-transform: rotate(270deg);
      -moz-transform: rotate(270deg);
       -ms-transform: rotate(270deg);
        -o-transform: rotate(270deg);
           transform: rotate(270deg);
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px #aaa inset;
+}
+
+progress[value]::-webkit-progress-value {
+  background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(199, 10, 110, .1) 33%, rgba(0, 0, 0, .1) 66%, transparent 66%),
+  -webkit-linear-gradient(top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .25)),
+  -webkit-linear-gradient(left, #ebf6ff, #ff0012);
+  border-radius: 10px;
+  background-size: 35px 20px, 100% 100%, 100% 100%;
 }

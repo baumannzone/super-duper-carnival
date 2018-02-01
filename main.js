@@ -37,7 +37,7 @@ function initMess() {
   // Repeat after xxx ms
   setTimeout( function () {
     clear( selectedCell, selectedPerson );
-  }, 1500 );
+  }, 1000 );
 }
 
 function clear( selectedCell, selectedPerson ) {
@@ -52,8 +52,11 @@ function clear( selectedCell, selectedPerson ) {
 }
 
 // On click
-function upLiometer( ev ) {
+function upLiometer() {
   liometer++;
+  const className = this.classList[ 2 ];
+  this.classList.remove( className );
+  this.removeEventListener( 'click', upLiometer );
   const liometerBar = document.getElementById( 'liometer-bar' );
   liometerBar.setAttribute( 'value', liometer );
 }
