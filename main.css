@@ -73,9 +73,9 @@ body {
   content: '🌡️';
   width: 10px;
   height: 20px;
-  animation: myship 1s linear infinite;
-  -moz-animation: myship 1s linear infinite;
-  -webkit-animation: myship 1s linear infinite;
+  animation: movingLR 1s linear infinite;
+  -moz-animation: movingLR 1s linear infinite;
+  -webkit-animation: movingLR 1s linear infinite;
 }
 
 .no-cursor {
@@ -87,7 +87,7 @@ body {
 }
 
 /* Animation */
-@keyframes myship {
+@keyframes movingLR {
   from {
     left: -5%;
   }
@@ -99,7 +99,7 @@ body {
   }
 }
 
-@-moz-keyframes myship {
+@-moz-keyframes movingLR {
   from {
     left: -5%;
   }
@@ -111,7 +111,7 @@ body {
   }
 }
 
-@-webkit-keyframes myship {
+@-webkit-keyframes movingLR {
   from {
     left: -5%;
   }
