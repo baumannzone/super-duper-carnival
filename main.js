@@ -109,8 +109,8 @@ function upLiometer() {
   // Update
   liometer++;
   // Get the 3rd css class
-  const className = this.classList[ 2 ];
-  this.classList.remove( className );
+  const user = this.classList[ 2 ];
+  this.classList.remove( user );
 
   // This prevents double clicks
   this.removeEventListener( 'click', upLiometer );
@@ -118,6 +118,9 @@ function upLiometer() {
   // Update progress bar
   let num = ( liometer * oneUnit );
   bar.style.height = `${num}%`;
+
+  // Remove user from candidates
+  candidates.splice( candidates.indexOf( user ), 1 );
 }
 
 document.addEventListener( 'DOMContentLoaded', initMess, false );

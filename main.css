@@ -49,12 +49,13 @@ body {
   position: relative;
   display: flex;
   justify-content: center;
+  padding-top: 10px;
 }
 
 #liometer .parent {
   display: flex;
   align-items: flex-end;
-  width: 50%;
+  width: 40%;
   height: 100%;
 }
 
@@ -88,36 +89,36 @@ body {
 /* Animation */
 @keyframes myship {
   from {
-    left: -10px;
+    left: -5%;
   }
   50% {
-    left: 10px;
+    left: 5%;
   }
   to {
-    left: -10px;
+    left: -5%;
   }
 }
 
 @-moz-keyframes myship {
   from {
-    left: -10px;
+    left: -5%;
   }
   50% {
-    left: 10px;
+    left: 5%;
   }
   to {
-    left: -10px;
+    left: -5%;
   }
 }
 
 @-webkit-keyframes myship {
   from {
-    left: -10px;
+    left: -5%;
   }
   50% {
-    left: 10px;
+    left: 5%;
   }
   to {
-    left: -10px;
+    left: -5%;
   }
 }
