@@ -1,18 +1,41 @@
-'use strict';
-
-const candidates = [ 'ancoar', 'codingCarlos', 'ymd', 'jbaumann', 'josheriff', 'ivooriginal' ];
+const candidates = [
+  'ancoar',
+  'b',
+  'baumann',
+  'bifuer',
+  'codingCarlos',
+  'elenaml',
+  'godoy',
+  'ivo',
+  'jacinto',
+  'josheriff',
+  'koolTheba',
+  'laetitia',
+  'lilxelo',
+  'pablocarmona',
+  'pabloFm',
+  'paul',
+  'pepe',
+  'sebas',
+  'sebastien',
+  'tuerto',
+  'vicky',
+  'ymd',
+];
 let liometer = 0;
 
 // Create style classes
 let styles = document.getElementById( 'styles' );
 let styleText = '<style>';
+
+// Create a class for each candidate with the image as background
 candidates.forEach( function ( candidate ) {
   styleText += `.${candidate} {
-  background: url("img/${candidate}.png");
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-}`;
+    background: url("img/${candidate}.png");
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+  }`;
 } );
 styleText += '</style>';
 styles.innerHTML = styleText;
@@ -60,8 +83,8 @@ function upLiometer() {
   // This prevents double clicks
   this.removeEventListener( 'click', upLiometer );
   // Update progress bar
-  const liometerBar = document.getElementById( 'liometer-bar' );
-  liometerBar.setAttribute( 'value', liometer );
+  // const liometerBar = document.getElementById( 'liometer-bar' );
+  // liometerBar.setAttribute( 'value', liometer );
 }
 
 document.addEventListener( 'DOMContentLoaded', initMess, false );

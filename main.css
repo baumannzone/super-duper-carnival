@@ -1,15 +1,6 @@
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr) minmax(200px, 1fr);
-  /*overflow: hidden;*/
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 15px;
   height: 100vh;
