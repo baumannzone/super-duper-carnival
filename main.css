@@ -1,53 +1,123 @@
+:root {
+  --spacing: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  cursor: wait;
+}
+
 .grid {
+  padding: var(--spacing);
   display: grid;
-  grid-template-columns: repeat(7, 1fr) minmax(200px, 1fr);
+  grid-template-columns: repeat(7, 1fr) minmax(100px, 1fr);
   grid-template-rows: repeat(4, 1fr);
-  grid-gap: 15px;
+  grid-gap: var(--spacing);
   height: 100vh;
 }
 
 .item {
+  position: relative;
   border-radius: 3px;
   text-align: center;
-  background: linear-gradient(134deg, #003da5 0%, rgba(176, 36, 255, 0.7) 100%);
+  background: linear-gradient(134deg, #003da5 0%, #2196F3 100%);
   color: white;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.item span {
+  width: 20px;
+  padding: 2px;
+  border-radius: 0 0 0 3px;
+  font-family: monospace;
+  color: #ffffff;
+  background-color: #fafafa52;
 }
 
 /* Liometro */
 #liometer {
+  border: 10px solid #eeeeee;
   grid-row: 1 / -1;
   grid-column: -2 / -1;
-  background: #b024ff;
+  background: transparent;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-/*
 #liometer .parent {
-  position: relative;
-  left: 148px;
+  display: flex;
+  align-items: flex-end;
+  width: 50%;
   height: 100%;
-  width: 460px;
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  transform: rotate(270deg);
 }
 
-progress[value] {
-  -webkit-appearance: none;
+#bar {
   width: 100%;
-  height: 50px;
+  background: linear-gradient(0deg, #9C27B0, #E91E63, #F44336);
+  background-size: 100% 100%;
+  transition: 0.3s cubic-bezier(0, 0, 0.75, 3.15);
+  border-radius: 40px 40px 0 0;
 }
 
-progress[value]::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 50px;
-  box-shadow: 0 2px 5px #aaa inset;
+/* Thermometer */
+#bar::after {
+  position: relative;
+  content: '🌡️';
+  width: 10px;
+  height: 20px;
+  animation: myship 1s linear infinite;
+  -moz-animation: myship 1s linear infinite;
+  -webkit-animation: myship 1s linear infinite;
 }
 
-progress[value]::-webkit-progress-value {
-  background-image: -webkit-linear-gradient(left, #ff6db5, #ff000e);
-  border-radius: 50px;
+.no-cursor {
+  cursor: none;
 }
-*/
+
+.hidden {
+  display: none;
+}
+
+/* Animation */
+@keyframes myship {
+  from {
+    left: -10px;
+  }
+  50% {
+    left: 10px;
+  }
+  to {
+    left: -10px;
+  }
+}
+
+@-moz-keyframes myship {
+  from {
+    left: -10px;
+  }
+  50% {
+    left: 10px;
+  }
+  to {
+    left: -10px;
+  }
+}
+
+@-webkit-keyframes myship {
+  from {
+    left: -10px;
+  }
+  50% {
+    left: 10px;
+  }
+  to {
+    left: -10px;
+  }
+}

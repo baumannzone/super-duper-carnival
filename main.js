@@ -1,4 +1,4 @@
-const candidates = [
+let candidates = [
   'ancoar',
   'b',
   'baumann',
@@ -12,6 +12,8 @@ const candidates = [
   'koolTheba',
   'laetitia',
   'lilxelo',
+  'nimbusaeta',
+  'nuria',
   'pablocarmona',
   'pabloFm',
   'paul',
@@ -22,7 +24,15 @@ const candidates = [
   'vicky',
   'ymd',
 ];
+
 let liometer = 0;
+
+// Get the number of px to add
+const maxPoints = candidates.length;
+const percent = 100 / maxPoints;
+const oneUnit = roundUp( percent );
+const bar = document.getElementById( 'bar' );
+let isFirstTime = true;
 
 // Create style classes
 let styles = document.getElementById( 'styles' );
@@ -40,9 +50,23 @@ candidates.forEach( function ( candidate ) {
 styleText += '</style>';
 styles.innerHTML = styleText;
 
+/**
+ * Round number
+ * @param num Num to round
+ * @param precision Number of decimals
+ * @returns {number}
+ */
+function roundUp( num, precision = 2 ) {
+  precision = Math.pow( 10, precision );
+  return Math.ceil( num * precision ) / precision
+}
+
+/**
+ * Start app
+ */
 function initMess() {
   const cells = document.querySelectorAll( '.item' );
-  const randomCellNum = Math.floor( Math.random() * 20 );
+  const randomCellNum = Math.floor( Math.random() * 28 );
   const randomPersonNum = Math.floor( Math.floor( Math.random() * candidates.length ) );
 
   // Select one cell
@@ -66,7 +90,7 @@ function initMess() {
 function clear( selectedCell, selectedPerson ) {
   selectedCell.classList.remove( selectedPerson );
   selectedCell.removeEventListener( 'click', upLiometer );
-  if ( liometer < 5 ) {
+  if ( liometer < maxPoints ) {
     initMess();
   }
   else {
@@ -76,15 +100,24 @@ function clear( selectedCell, selectedPerson ) {
 
 // On click
 function upLiometer() {
+  // Show liometer-bar on first click
+  if ( isFirstTime ) {
+    document.getElementById( 'bar' ).classList.remove( 'hidden' );
+    isFirstTime = false;
+  }
+
+  // Update
   liometer++;
-  // 3rd class
+  // Get the 3rd css class
   const className = this.classList[ 2 ];
   this.classList.remove( className );
+
   // This prevents double clicks
   this.removeEventListener( 'click', upLiometer );
+
   // Update progress bar
-  // const liometerBar = document.getElementById( 'liometer-bar' );
-  // liometerBar.setAttribute( 'value', liometer );
+  let num = ( liometer * oneUnit );
+  bar.style.height = `${num}%`;
 }
 
 document.addEventListener( 'DOMContentLoaded', initMess, false );
