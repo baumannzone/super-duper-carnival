@@ -9,28 +9,28 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr) minmax(200px, 1fr);
-  overflow: hidden;
+  /*overflow: hidden;*/
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 15px;
+  height: 100vh;
 }
 
 .item {
   border-radius: 3px;
   text-align: center;
-  background: linear-gradient(134deg, rgba(24, 77, 255, 1) 0%, rgba(176, 36, 255, 0.7) 100%);
+  background: linear-gradient(134deg, #003da5 0%, rgba(176, 36, 255, 0.7) 100%);
   color: white;
-  height: 140px;
 }
 
 /* Liometro */
 #liometer {
   grid-row: 1 / -1;
   grid-column: -2 / -1;
-  background: #003da5;
-  height: 100%;
+  background: #b024ff;
   position: relative;
 }
 
+/*
 #liometer .parent {
   position: relative;
   left: 148px;
@@ -59,3 +59,4 @@ progress[value]::-webkit-progress-value {
   background-image: -webkit-linear-gradient(left, #ff6db5, #ff000e);
   border-radius: 50px;
 }
+*/
