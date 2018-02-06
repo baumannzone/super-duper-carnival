@@ -95,7 +95,7 @@ function clear( selectedCell, selectedPerson ) {
     initMess();
   }
   else {
-    alert( 'LIOMETRO AL 100%' );
+    alert( 'LIOMETRO AL 100%. GRACIAS POR PARTICIPAR! NINGÚN PROGRAMADOR HA SIDO DAÑAD... AI! AHH! AUU! ...O DURANTE LA CREACIÓN DE ESTE MINIJUEGO.' );
   }
 }
 
