@@ -18,6 +18,7 @@ body {
   grid-template-rows: repeat(4, 1fr);
   grid-gap: var(--spacing);
   height: 100vh;
+  animation: intro 1s;
 }
 
 .item {
@@ -78,10 +79,16 @@ body {
   -webkit-animation: movingLR 1s linear infinite;
 }
 
+#counter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+}
+
 #liante {
   display: none;
   background: url('img/ulisesLiado.png');
-  background-size: auto auto;
   background-size: contain;
   background-repeat: no-repeat;
   position: fixed;
@@ -89,7 +96,7 @@ body {
   left: 50%;
   z-index: 1;
   width: 400px;
-  height: 400px;
+  height: 300px;
   transform: translate(-50%, -50%);
 }
 
@@ -101,6 +108,7 @@ body {
   cursor: none;
 }
 
+/* Liometer bar hidden by default */
 .hidden {
   display: none;
 }
@@ -140,4 +148,31 @@ body {
   to {
     left: -5%;
   }
+}
+
+@keyframes intro {
+  0% {
+    transform: scale(.7);
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes intro {
+  0% {
+    transform: scale(.7);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes intro {
+  0% {
+    transform: scale(.7);
+    opacity: 0;
+  }
+}
+
+/* SWAL Modal */
+
+.swal-text {
+  font-size: 24px;
 }

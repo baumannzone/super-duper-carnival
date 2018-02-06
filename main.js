@@ -4,35 +4,41 @@ let candidates = [
   'baumann',
   'bifuer',
   'codingCarlos',
-  'elenaml',
-  'godoy',
-  'ivo',
-  'jacinto',
-  'josheriff',
-  'koolTheba',
-  'laetitia',
-  'lilxelo',
-  'nimbusaeta',
-  'nuria',
-  'pablocarmona',
-  'pabloFm',
-  'paul',
-  'pepe',
-  'sebas',
-  'sebastien',
-  'tuerto',
-  'vicky',
-  'ymd',
+  // 'elenaml',
+  // 'godoy',
+  // 'ivo',
+  // 'jacinto',
+  // 'josheriff',
+  // 'koolTheba',
+  // 'laetitia',
+  // 'lilxelo',
+  // 'nimbusaeta',
+  // 'nuria',
+  // 'pablocarmona',
+  // 'pabloFm',
+  // 'paul',
+  // 'pepe',
+  // 'sebas',
+  // 'sebastien',
+  // 'tuerto',
+  // 'vicky',
+  // 'ymd',
 ];
 
 let liometer = 0;
 
 // Get the number of px to add
+const bar = document.getElementById( 'bar' );
+const liante = document.getElementById( 'liante' );
+const counter = document.getElementById( 'counter' );
+const audio = document.getElementById( 'audio' );
+
 const maxPoints = candidates.length;
 const percent = 100 / maxPoints;
 const oneUnit = roundUp( percent );
-const bar = document.getElementById( 'bar' );
-const liante = document.getElementById( 'liante' );
+
+const TIME_BY_CARD = 1000; // Milliseconds
+const TIME_SHOW_IMAGE = 600; // Milliseconds
 let isFirstTime = true;
 
 // Create style classes
@@ -85,7 +91,7 @@ function initMess() {
   // Repeat after xxx ms
   setTimeout( function () {
     clear( selectedCell, selectedPerson );
-  }, 1000 );
+  }, TIME_BY_CARD );
 }
 
 function clear( selectedCell, selectedPerson ) {
@@ -95,16 +101,21 @@ function clear( selectedCell, selectedPerson ) {
     initMess();
   }
   else {
-    liante.classList.add('display');
-    alert( 'LIOMETRO AL 100%. GRACIAS POR PARTICIPAR! NINGÚN PROGRAMADOR HA SIDO DAÑAD... AI! AHH! AUU! ...O DURANTE LA CREACIÓN DE ESTE MINIJUEGO.' );
+    liante.classList.add( 'display' );
+    // Alert + redirect
+    swal( 'Good job!', 'El liómetro está al 100% y por el momento no puedes liar a más personas.', 'success' )
+      .then( ( value ) => {
+        window.location.href = '_video.html';
+      } );
   }
 }
 
 // On click
 function upLiometer() {
+  audio.play();
   // Show liante img :P
-  liante.classList.add('display');
-  setTimeout(() => liante.classList.remove('display'), 400);
+  liante.classList.add( 'display' );
+  setTimeout( () => liante.classList.remove( 'display' ), TIME_SHOW_IMAGE );
 
   // Show liometer-bar on first click
   if ( isFirstTime ) {
@@ -124,6 +135,7 @@ function upLiometer() {
   // Update progress bar
   let num = ( liometer * oneUnit );
   bar.style.height = `${num}%`;
+  counter.innerHTML = `${num}%`;
 
   // Remove user from candidates
   candidates.splice( candidates.indexOf( user ), 1 );
