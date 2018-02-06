@@ -32,6 +32,7 @@ const maxPoints = candidates.length;
 const percent = 100 / maxPoints;
 const oneUnit = roundUp( percent );
 const bar = document.getElementById( 'bar' );
+const liante = document.getElementById( 'liante' );
 let isFirstTime = true;
 
 // Create style classes
@@ -100,6 +101,10 @@ function clear( selectedCell, selectedPerson ) {
 
 // On click
 function upLiometer() {
+  // Show liante img :P
+  liante.classList.add('display');
+  setTimeout(() => liante.classList.remove('display'), 400);
+
   // Show liometer-bar on first click
   if ( isFirstTime ) {
     document.getElementById( 'bar' ).classList.remove( 'hidden' );

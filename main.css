@@ -78,6 +78,25 @@ body {
   -webkit-animation: movingLR 1s linear infinite;
 }
 
+#liante {
+  display: none;
+  background: url('img/ulisesLiado.png');
+  background-size: auto auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+}
+
+#liante.display {
+  display: block;
+}
+
 .no-cursor {
   cursor: none;
 }
