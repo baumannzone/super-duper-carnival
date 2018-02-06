@@ -105,7 +105,7 @@ function clear( selectedCell, selectedPerson ) {
     // Alert + redirect
     swal( 'Good job!', 'El liómetro está al 100% y por el momento no puedes liar a más personas.', 'success' )
       .then( ( value ) => {
-        window.location.href = '_video.html';
+        window.location.href = 'video.html';
       } );
   }
 }
