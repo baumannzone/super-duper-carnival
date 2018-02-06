@@ -132,10 +132,10 @@ function upLiometer() {
   // This prevents double clicks
   this.removeEventListener( 'click', upLiometer );
 
-  // Update progress bar
+  // Update progress bar & counter
   let num = ( liometer * oneUnit );
   bar.style.height = `${num}%`;
-  counter.innerHTML = `${num}%`;
+  counter.innerHTML = liometer;
 
   // Remove user from candidates
   candidates.splice( candidates.indexOf( user ), 1 );
